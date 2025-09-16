@@ -1,11 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document appRECORD</title>
+  <meta charset="UTF-8">
+  <title>Звіти з лабораторних робіт</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Загальні стилі */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ШАПКА */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 2px solid #000;
+}
+
+.header-text {
+  flex: 1;
+  text-align: center;
+}
+
+.header-text h2 {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.header-text p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.header-photo img {
+  width: 120px;
+  height: auto;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+
+/* КНОПКИ ЛАБОРАТОРНИХ */
+.labs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  justify-content: center;
+}
+
+.labs-nav button {
+  padding: 8px 12px;
+  border: 1px solid #888;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.labs-nav button:hover {
+  background-color: #ffeeba;
+}
+
+/* ОСНОВНИЙ КОНТЕНТ */
+main {
+  display: flex;
+  min-height: 500px;
+}
+
+/* Ліва панель */
+.sidebar {
+  width: 250px;
+  border-right: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar button {
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background-color: #dff0ff;
+}
+
+/* Центральна область */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto; /* Скролл */
+}
+
+  </style>
+  
 </head>
 <body>
-    
+  <header>
+    <div class="header-text">
+      <h2>
+        ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ <br>
+        З ДИСЦИПЛІНИ «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. <br>
+        ОСНОВИ FRONTEND ТА BACKEND РОЗРОБОК»
+      </h2>
+      <p>Студент групи ІО-34 <b>Собкович Роман Сергійович</b></p>
+    </div>
+
+    <div class="header-photo">
+      <img src="student_picture.jpg" alt="Фото студента">
+    </div>
+  </header>
+
+  <nav class="labs-nav">
+    <button>Лаб-робота №1</button>
+    <button>Лаб-робота №2</button>
+    <button>Лаб-робота №3</button>
+    <button>Лаб-робота №4</button>
+    <button>Лаб-робота №5</button>
+    <button>Лаб-робота №6</button>
+    <button>Лаб-робота №7</button>
+    <button>Лаб-робота №8</button>
+    <button>Лаб-робота №9</button>
+  </nav>
+
+  <main>
+    <aside class="sidebar">
+      <button>Опис предметного середовища</button>
+      <button>Тема, мета та розташування лаби №1</button>
+      <button>Структура документа</button>
+      <button>HTML-код таблиць</button>
+      <button>HTML-код форми</button>
+      <button>HTML-код зображення</button>
+      <button>Висновки</button>
+    </aside>
+
+    <section class="content">
+      <h3>Місце виведення інформації</h3>
+      <p>................................</p>
+    </section>
+  </main>
+
 </body>
 </html>
