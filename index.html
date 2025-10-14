@@ -1,153 +1,101 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Звіти з лабораторних робіт</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Загальні стилі */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="styles.css">
 
-/* ШАПКА */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  border-bottom: 2px solid #000;
-}
+    <title>RECORD HTML</title>
 
-.header-text {
-  flex: 1;
-  text-align: center;
-}
-
-.header-text h2 {
-  font-size: 18px;
-  margin: 0 0 10px 0;
-  line-height: 1.4;
-}
-
-.header-text p {
-  font-size: 16px;
-  margin: 0;
-}
-
-.header-photo img {
-  width: 120px;
-  height: auto;
-  border: 2px solid gray;
-  border-radius: 5px;
-}
-
-/* КНОПКИ ЛАБОРАТОРНИХ */
-.labs-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  justify-content: center;
-}
-
-.labs-nav button {
-  padding: 8px 12px;
-  border: 1px solid #888;
-  border-radius: 6px;
-  background-color: #f9f9f9;
-  cursor: pointer;
-}
-
-.labs-nav button:hover {
-  background-color: #ffeeba;
-}
-
-/* ОСНОВНИЙ КОНТЕНТ */
-main {
-  display: flex;
-  min-height: 500px;
-}
-
-/* Ліва панель */
-.sidebar {
-  width: 250px;
-  border-right: 1px solid #ccc;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.sidebar button {
-  padding: 8px;
-  border: 1px solid #aaa;
-  border-radius: 20px;
-  background-color: #f0f0f0;
-  cursor: pointer;
-}
-
-.sidebar button:hover {
-  background-color: #dff0ff;
-}
-
-/* Центральна область */
-.content {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto; /* Скролл */
-}
-
-  </style>
-  
 </head>
+
 <body>
-  <header>
-    <div class="header-text">
-      <h2>
-        ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ <br>
-        З ДИСЦИПЛІНИ «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. <br>
-        ОСНОВИ FRONTEND ТА BACKEND РОЗРОБОК»
-      </h2>
-      <p>Студент групи ІО-34 <b>Собкович Роман Сергійович</b></p>
-    </div>
+    <header>
+        <div class="header-title">
+            <p>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ<br>
+               З ДИСЦИПЛІНИ "WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ"<br>
+               ОСНОВИ FRONTEND РОЗРОБОК.</p>
+        </div>
 
-    <div class="header-photo">
-      <img src="student_picture.jpg" alt="Фото студента">
-    </div>
-  </header>
+        <div class="sub-header">
+            <p>.......................</p>
+        </div>
 
-  <nav class="labs-nav">
-    <button>Лаб-робота №1</button>
-    <button>Лаб-робота №2</button>
-    <button>Лаб-робота №3</button>
-    <button>Лаб-робота №4</button>
-    <button>Лаб-робота №5</button>
-    <button>Лаб-робота №6</button>
-    <button>Лаб-робота №7</button>
-    <button>Лаб-робота №8</button>
-    <button>Лаб-робота №9</button>
-  </nav>
+        <div class="image-box">
+          <img src="student_picture.jpg" alt="image of student" class="first-image">
+        </div>
 
-  <main>
-    <aside class="sidebar">
-      <button>Опис предметного середовища</button>
-      <button>Тема, мета та розташування лаби №1</button>
-      <button>Структура документа</button>
-      <button>HTML-код таблиць</button>
-      <button>HTML-код форми</button>
-      <button>HTML-код зображення</button>
-      <button>Висновки</button>
-    </aside>
+        <div class="header-line"></div>
 
-    <section class="content">
-      <h3>Місце виведення інформації</h3>
-      <p>................................</p>
-    </section>
+        <div class="button-group">
+          <button class="button-pract">Практ. 1</button>
+          <button class="button-pract">Практ. 2</button>
+          <button class="button-pract">Практ. 3</button>
+          <button class="button-pract">Практ. 4</button>
+          <button class="button-pract">Практ. 5</button>
+          <button class="button-pract">Практ. 6</button>
+          <button class="button-pract">Практ. 7</button>
+          <button class="button-pract">Практ. 8</button>
+          <button class="button-pract">Практ. 9</button>
+        </div>
+    </header>
+
+    <main>
+      <aside class="side-menu" id="lab-menu">
+          <button class="menu-button active" data-content-id="opis">Опис предметного середовища</button>
+          <button class="menu-button" data-content-id="tema">Тема Мета Місце розташування лаб. №1</button>
+          <button class="menu-button" data-content-id="struktura">СТРУКТУРА ДОКУМЕНТА</button>
+          <button class="menu-button" data-content-id="tablicya">HTML-код ТАБЛИЦЬ</button>
+          <button class="menu-button" data-content-id="formi">HTML-код ФОРМИ</button>
+          <button class="menu-button" data-content-id="zobrazhennia">HTML-код ЗОБРАЖЕННЯ</button>
+          <button class="menu-button" data-content-id="visnovki">ВИСНОВКИ</button>
+      </aside>
+  
+      <section class="content-window">
+          <h2 class="content-title">Місце виведення інформації</h2>
+          
+          <div id="opis" class="content-block active-content">
+              <h3>Опис предметного середовища</h3>
+              <p>Тут буде розміщено детальний опис предметного середовища для даної лабораторної роботи. Це може бути текст, зображення або інтерактивні елементи.</p>
+              <p>...</p>
+          </div>
+  
+          <div id="tema" class="content-block">
+              <h3>Тема, мета, місце розташування лаб. №1</h3>
+              <p>Інформація про тему та мету лабораторної роботи №1, а також посилання на місце її розташування (наприклад, репозиторій).</p>
+          </div>
+  
+          <div id="struktura" class="content-block">
+              <h3>Структура документа</h3>
+              <p>Скріншоти та опис структури HTML-документа.</p>
+          </div>
+  
+          <div id="tablicya" class="content-block">
+              <h3>HTML-код Таблиць</h3>
+              <pre><code>&lt;table>...&lt;/table></code></pre>
+              <p>Приклади коду та результати відображення таблиць.</p>
+          </div>
+          
+          <div id="formi" class="content-block">
+              <h3>HTML-код Форми</h3>
+              <pre><code>&lt;form>...&lt;/form></code></pre>
+              <p>Приклади коду та результати відображення форм.</p>
+          </div>
+  
+          <div id="zobrazhennia" class="content-block">
+              <h3>HTML-код Зображення</h3>
+              <pre><code>&lt;img src="..."></code></pre>
+              <p>Приклади коду та результати відображення зображень.</p>
+          </div>
+  
+          <div id="visnovki" class="content-block">
+              <h3>Висновки</h3>
+              <p>Підсумкові висновки до лабораторної роботи №1.</p>
+          </div>
+          
+      </section>
   </main>
-
-</body>
+  <script defer src="script.js"></script> 
+  </body>
 </html>
