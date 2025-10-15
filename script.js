@@ -1,17 +1,74 @@
-// ====== СТРУКТУРА ДАНИХ (симуляція даних з бекенду) ======
+// ====== СТРУКТУРА ДАНИХ ======
 const labData = {
     'lab1': {
         title: 'Звіт з Лабораторної роботи №1',
         opis: {
-            heading: 'Опис предметного середовища (Лаб. №1)',
-            content: `<p>Лабораторна робота №1 присвячена основам HTML5 та створення базової структури веб-сторінки.</p>
-                      <p>Основне завдання: засвоєння тегів &lt;!DOCTYPE html>, &lt;html>, &lt;head>, &lt;body> та їх атрибутів.</p>`
+            heading: 'Опис предметного середовища (Сайт взуттєвого магазину)',
+            content: `
+                <p>Сайт взуттєвого магазину брендів є інформаційно-комерційною платформою, яка дозволяє користувачам зручно ознайомлюватися з асортиментом взуття різних відомих виробників.</p>
+        
+                <section>
+                    <h4>Основні функції та контент:</h4>
+                    <ul>
+                        <li>На головній сторінці відображаються актуальні колекції, новинки сезону, акційні пропозиції та популярні бренди.</li>
+                        <li>Користувач може перейти до відповідних розділів: **жіноче, чоловіче або дитяче взуття**.</li>
+                        <li>Каталог товарів містить фотографії, короткий опис і ціну.</li>
+                        <li>Реалізовано навігаційне меню та можливість **фільтрувати моделі** за типом, брендом чи категорією.</li>
+                    </ul>
+                </section>
+        
+                <section>
+                    <h4>Логічна структура сайту:</h4>
+                    <dl>
+                        <dt>Хедер (Header)</dt>
+                        <dd>Містить назву магазину та навігаційне меню.</dd>
+                        
+                        <dt>Головна частина (Main)</dt>
+                        <dd>Показує основну інформацію, колекції або окремі товари.</dd>
+                        
+                        <dt>Футер (Footer)</dt>
+                        <dd>Містить додаткові посилання, контактну інформацію та соціальні мережі.</dd>
+                    </dl>
+                </section>
+        
+                <p>Головна мета такого сайту — створити зручний і зрозумілий простір для користувача, де можна швидко знайти потрібне взуття, ознайомитися з брендами, дізнатися про новинки та пропозиції магазину.</p>
+            `
         },
         tema: {
-            heading: 'Тема Мета Місце розташування лаб. №1',
-            content: `<p><strong>Тема:</strong> Вступ до HTML5 та структура документа.</p>
-                      <p><strong>Мета:</strong> Навчитися створювати валідний HTML-документ.</p>
-                      <p><strong>Розташування:</strong> <a href="#">Посилання на GitHub/локальний файл</a></p>`
+            heading: 'Тема, Мета, Місце розташування (Лаб. №1)',
+            content: `
+                <p>
+                    <strong>Тема:</strong> Структура HTML-документа. Вибір предметної галузі. GitHub. Робота з репозиторіями. Основні теги та атрибути в HTML-документі.
+                </p>
+        
+                <p>
+                    <strong>Мета:</strong> Придбати практичні навички роботи з GitHub, репозиторіями, HTML-документом, таблицями, зображеннями, посиланнями, списками, формами. 
+                    Створити шаблон звітного HTML-документом для відображення результатів роботи всіх лабораторних робіт.
+                </p>
+                
+                <h4>Ресурси та розташування:</h4>
+                <ul>
+                    <li>
+                        <strong>Репозиторій GitHub звіту:</strong> <a href="https://github.com/Severusromantik/IO-34_appRECORD-SobkovychRoman-FIOT-2025" target="_blank">Посилання GitHub-репозиторій звіту</a>
+                    </li>
+                    <li>
+                        <strong>Репозиторій GitHub cамостійних робіт:</strong> <a href="https://github.com/Severusromantik/IO-34_INDEPENDENT-SobkovychRoman-FIOT-2025" target="_blank">Посилання на GitHub-репозиторій cамостійних робіт (макет, ТЗ)</a>
+                    </li>
+                    <li>
+                        <strong>Репозиторій GitHub WEB застосунку:</strong> <a href="https://github.com/Severusromantik/IO-34_appWEB-SobkovychRoman-FIOT-2025" target="_blank">Посилання GitHub-репозиторій веб застосунку</a>
+                    </li>
+
+                    <li>
+                        <strong>Жива сторінка GitHub звіту:</strong> <a href="https://severusromantik.github.io/IO-34_appRECORD-SobkovychRoman-FIOT-2025/" target="_blank">Жива сторінка GitHub звіту</a>
+                    </li>
+                    <li>
+                        <strong>Жива сторінка GitHub cамостійних робіт:</strong> <a href="https://severusromantik.github.io/IO-34_INDEPENDENT-SobkovychRoman-FIOT-2025/" target="_blank">Жива сторінка GitHub cамостійних робіт (макет, ТЗ)</a>
+                    </li>
+                    <li>
+                        <strong>Жива сторінка GitHub WEB застосунку:</strong> <a href="https://severusromantik.github.io/IO-34_appWEB-SobkovychRoman-FIOT-2025/" target="_blank">Жива сторінка GitHub WEB застосунку</a>
+                    </li>
+                </ul>
+            `
         },
         struktura: {
             heading: 'СТРУКТУРА ДОКУМЕНТА (Лаб. №1)',
@@ -21,21 +78,35 @@ const labData = {
         },
         tablicya: {
             heading: 'HTML-код ТАБЛИЦЬ (Лаб. №1)',
-            content: `<pre><code>&lt;table>\n  &lt;tr>\n    &lt;td>Дані 1&lt;/td>\n  &lt;/tr>\n&lt;/table></code></pre>
-                      <p>Таблиця використовується для представлення даних звіту.</p>`
+            content: `<p>У Лаб. №1 таблиці не використовувались.</p>`
         },
         formi: {
-            heading: 'HTML-код ФОРМИ (Лаб. №1)',
+            heading: 'HTML-код ФОРМ (Лаб. №1)',
             content: `<p>У Лаб. №1 форми не використовувались. Тільки базові теги.</p>`
         },
         zobrazhennia: {
             heading: 'HTML-код ЗОБРАЖЕННЯ (Лаб. №1)',
-            content: `<pre><code>&lt;img src="student_photo.jpg" alt="Фото студента"></code></pre>
-                      <p>Додано зображення відповідно до макету.</p>`
+            content: `<pre><code>&lt;img src="nike_red_with_name.png" alt="Опис фото"></code></pre>`
         },
         visnovki: {
             heading: 'ВИСНОВКИ (Лаб. №1)',
-            content: `<p>Лабораторна робота №1 успішно виконана. Засвоєно базову структуру HTML.</p>`
+            content: `
+                <p>
+                    У результаті роботи було вивчено **структуру HTML-документа**, основні теги та атрибути, які визначають зміст і побудову вебсторінки.
+                </p>
+        
+                <p>
+                    Було обрано предметну галузь — **сайт взуттєвого магазину брендів**, проаналізовано його логіку, основні розділи та елементи інтерфейсу. Зокрема, визначено структуру сторінки, що включає хедер із навігаційним меню, головну частину з каталогом товарів та футер із додатковими посиланнями й соціальними мережами.
+                </p>
+        
+                <p>
+                    Окрім цього, опрацьовано принципи роботи з **GitHub** — створення, збереження та оновлення репозиторіїв, що забезпечує ефективну командну роботу й контроль версій коду.
+                </p>
+        
+                <p>
+                    Таким чином, отримані знання дозволили сформувати розуміння базової структури HTML-документа, організації вебконтенту та основних інструментів керування проєктами. Це створює міцну основу для подальшого вивчення веброзробки та практичного застосування отриманих навичок під час створення власних вебсайтів.
+                </p>
+            `
         },
     },
     'lab2': {
@@ -51,7 +122,7 @@ const labData = {
                       <p><strong>Мета:</strong> Навчитися стилізувати елементи за допомогою зовнішнього файлу CSS.</p>
                       <p><strong>Розташування:</strong> <a href="#">Посилання на GitHub/Лаб. 2</a></p>`
         },
-        // ... тут мали б бути інші розділи для Лаб. 2
+        
         visnovki: {
             heading: 'ВИСНОВКИ (Лаб. №2)',
             content: `<p>Лабораторна робота №2 успішно виконана. Засвоєно базові стилі CSS.</p>`
@@ -60,35 +131,29 @@ const labData = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Елементи
+  
     const labButtons = document.querySelectorAll('.button-pract');
     const menuButtons = document.querySelectorAll('.side-menu .menu-button');
     const contentWindow = document.querySelector('.content-window');
     const contentTitle = document.querySelector('.content-title');
 
-    // Змінна для відстеження поточної активної лабораторної
-    let currentLab = 'lab1'; // За замовчуванням Lab 1
+    let currentLab = 'lab1'; 
 
-    // Функція для відображення контенту
     const displayContent = (labId, sectionId) => {
-        const data = labData[labId]?.[sectionId]; // Отримуємо дані
+        const data = labData[labId]?.[sectionId]; 
         
-        // Очищаємо вікно контенту
         contentWindow.innerHTML = ''; 
 
         if (data) {
-            // Оновлюємо заголовок вікна
             contentTitle.textContent = labData[labId].title;
             
-            // Створюємо та вставляємо контент
             const section = document.createElement('div');
             section.className = 'content-block active-content';
             section.innerHTML = `<h3>${data.heading}</h3>${data.content}`;
             
-            contentWindow.appendChild(contentTitle.cloneNode(true)); // Додаємо заголовок знову
+            contentWindow.appendChild(contentTitle.cloneNode(true)); 
             contentWindow.appendChild(section);
         } else {
-            // Якщо даних немає (наприклад, для Лаб. 2 не всі секції заповнені)
             contentWindow.innerHTML = `<h2 class="content-title">${labData[labId].title}</h2>
                                        <div class="content-block active-content">
                                            <h3>Розділ не знайдено</h3>
@@ -96,22 +161,18 @@ document.addEventListener('DOMContentLoaded', () => {
                                        </div>`;
         }
 
-        // Переводимо прокрутку вікна на початок
         contentWindow.scrollTop = 0;
     };
 
 
-    // 1. Обробка натискання кнопок БІЧНОЇ ПАНЕЛІ
     const handleMenuClick = (event) => {
         const targetId = event.currentTarget.dataset.contentId; 
 
-        // 1.1. Знімаємо активний клас з усіх кнопок меню та додаємо до поточної
         menuButtons.forEach(button => {
             button.classList.remove('active');
         });
         event.currentTarget.classList.add('active');
         
-        // 1.2. Відображаємо контент для поточної Лаб. та вибраного розділу
         displayContent(currentLab, targetId);
     };
 
@@ -120,25 +181,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // 2. Обробка натискання ВЕРХНІХ кнопок (Практ. 1-9)
     const handleLabSwitch = (event) => {
         const labIndex = event.currentTarget.textContent.replace('Практ. ', '');
         const newLabId = `lab${labIndex}`;
 
         if (!labData[newLabId]) {
              alert(`Контент для ${event.currentTarget.textContent} поки не завантажено.`);
-             return; // Виходимо, якщо даних немає
+             return; 
         }
 
-        // 2.1. Оновлюємо активний стиль на верхній панелі
         labButtons.forEach(btn => btn.classList.remove('active-lab'));
         event.currentTarget.classList.add('active-lab');
         
-        // 2.2. Оновлюємо змінну поточної лабораторної
         currentLab = newLabId;
 
-        // 2.3. Симулюємо клік по першій кнопці бічної панелі, 
-        // щоб відобразити початковий контент нової роботи
         const firstMenuButton = document.querySelector('.side-menu .menu-button');
         if (firstMenuButton) {
             firstMenuButton.click(); 
@@ -149,9 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
         labButton.addEventListener('click', handleLabSwitch);
     });
 
-    // 3. Ініціалізація при завантаженні сторінки (активуємо Практ. 1)
     const pract1Button = document.querySelector('.button-pract:first-child');
     if (pract1Button) {
-        pract1Button.click(); // Симулюємо клік по Практ. 1, що викличе displayContent
+        pract1Button.click(); 
     }
 });

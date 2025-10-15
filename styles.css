@@ -14,7 +14,7 @@ body {
   color: #333;
 }
 
-/* ===== Хедер ===== */
+
 header {
   display: flex;
   flex-direction: column;      
@@ -43,7 +43,6 @@ header {
 }
 
 
-/* ===== Сіра лінія після хедера ===== */
 .header-line {
   width: 100%;
   height: 2px;
@@ -71,7 +70,6 @@ header {
     object-fit: cover; 
 }
 
-/* */
 .button-pract {
     border: none;
     cursor: pointer;
@@ -101,9 +99,8 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Стиль для АКТИВНОЇ кнопки лабораторної (на верхній панелі) - НОВЕ/ОНОВЛЕНЕ */
 .button-pract.active-lab {
-    background-color: #f7d54b; /* Жовтий колір, як на макеті */
+    background-color: #f7d54b; 
     color: #333;
     border: 1px solid #c2a63d;
     box-shadow: 0 4px 15px rgba(247, 213, 75, 0.7);
@@ -113,36 +110,34 @@ header {
     background-color: #e4c740;
 }
 
-/* ===== Секція Main - Розміщення всього контенту нижче хедера ===== */
 main {
-    display: flex; /* Використовуємо Flexbox для розташування меню та контенту */
+    display: flex; 
     padding: 20px;
-    gap: 30px; /* Відстань між меню та вікном контенту */
-    min-height: calc(100vh - 350px); /* Приблизна висота, щоб main займав місце */
+    gap: 30px; 
+    min-height: calc(100vh - 350px); 
 }
 
-/* ===== Бічне меню (стовпчик з кнопками) ===== */
+
 .side-menu {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Відстань між кнопками */
-    width: 300px; /* Фіксована ширина меню */
+    gap: 10px; 
+    width: 300px; 
     padding-left: 20px;
 }
 
 .menu-button {
-    /* Стилі як у .button-pract, але для меню */
     border: none;
     cursor: pointer;
     padding: 15px 10px;
     border-radius: 5px;
     text-align: left;
     
-    color: #333; /* Колір тексту */
+    color: #333; 
     font-size: 1.2rem;
     font-weight: 500;
     
-    background-color: #f0f0f0; /* Світлий фон за замовчуванням */
+    background-color: #f0f0f0; 
     transition: all 0.2s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -151,9 +146,8 @@ main {
     background-color: #e0e0e0;
 }
 
-/* Стиль для АКТИВНОЇ кнопки в меню */
 .menu-button.active {
-    background-color: #eab774; /* Колір з хедера */
+    background-color: #eab774; 
     color: white;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(234, 183, 116, 0.5);
@@ -164,13 +158,12 @@ main {
 }
 
 
-/* ===== Вікно для виведення контенту ===== */
 .content-window {
-    flex-grow: 1; /* Займає весь простір, що залишився */
-    border: 3px solid #aeacac; /* Рамка, як на макеті */
+    flex-grow: 1; 
+    border: 3px solid #aeacac; 
     padding: 20px;
-    height: 600px; /* Фіксована висота вікна */
-    overflow-y: auto; /* Дозволяє прокручування по вертикалі */
+    height: 600px; 
+    overflow-y: auto; 
     background-color: #fefefe;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
 }
@@ -181,14 +174,39 @@ main {
     color: #555;
 }
 
-/* Стилі для динамічно створеного блоку контенту */
 .content-block.active-content {
-    /* Цей клас тепер використовується для стилізації динамічно вставленого контенту, 
-       а не для керування display: none/block */
     padding: 10px;
     margin-bottom: 20px;
     border-left: 4px solid #eab774;
 }
+
+.content-block.active-content ul {
+    padding-left: 30px; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
+.content-block.active-content li {
+    line-height: 1.6; 
+    margin-bottom: 5px; 
+}
+
+.content-block.active-content dl {
+    padding-left: 15px; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content-block.active-content dt {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.content-block.active-content dd {
+    margin-left: 20px;
+}
+
+
 
 .content-block h3 {
     color: #333;
