@@ -206,6 +206,17 @@ main {
     margin-left: 20px;
 }
 
+.content-block.active-content ol {
+    margin-left: 0; 
+    padding-left: 30px; 
+    list-style-position: outside; 
+}
+
+.content-block.active-content li {
+    margin-bottom: 5px; 
+    padding-left: 0;
+}
+
 
 
 .content-block h3 {
