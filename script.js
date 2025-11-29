@@ -1185,48 +1185,649 @@ const labData = {
                 <p>
                     <strong>Фото роботи програми</strong>
                 </p>
-                <div class="image-box">
-                    <img src=" " alt="Фото" class="first-image">
+                <div class="task-images-container">
+                    <img src="img_lab4/lab4_1(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_1(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_1(3).png" alt="Фото" class="task-image">
                 </div>
             `
         },
         
 
-        media_queries: {
-            heading: 'Медіа-запити: приклади з коду',
+        ex2: {
+            heading: 'Завдання №2',
             content: `
-                <!-- Сюди додайте приклад використання @media та пояснення -->
-            `
-        },
-        
+                <p>
+                    <strong>Програмний код файлу .js завдання №2</strong>
+                </p>
+                <pre>
+                // 1. Запитуємо у користувача значення дня (від '1' до '7')
+                const day = prompt('Введіть число від 1 до 7, що відповідає дню тижня:');
 
-        media_types: {
-            heading: 'Медіа-типи: приклади з коду',
-            content: `
-                <!-- Сюди додайте приклад використання медіа-типів (screen, print) та пояснення -->
-            `
-        },
-        
+                let finish; // Оголошуємо змінну, в яку буде записано назву дня тижня
 
-        media_functions: {
-            heading: 'Медіа-функції: приклади з коду',
-            content: `
-                <!-- Сюди додайте приклад використання медіа-функцій (min-width, max-width) та пояснення -->
-            `
-        },
-        
+                // 2. Використовуємо switch-case для визначення назви дня
+                switch (day) {
+                    case '1':
+                        finish = 'Понеділок';
+                        break;
+                    case '2':
+                        finish = 'Вівторок';
+                        break;
+                    case '3':
+                        finish = 'Середа';
+                        break;
+                    case '4':
+                        finish = 'Четвер';
+                        break;
+                    case '5':
+                        finish = 'П\'ятниця';
+                        break;
+                    case '6':
+                        finish = 'Субота';
+                        break;
+                    case '7':
+                        finish = 'Неділя';
+                        break;
+                    default:
+                        // 3. Дефолтне значення на випадок некоректного вводу
+                        if (day === null) {
+                            finish = 'Введення скасовано. Оновіть сторінку.';
+                        } else {
+                            finish = 'Помилка: Введено некоректне значення. Будь ласка, введіть число від 1 до 7.';
+                        }
+                        break;
+                }
 
-        mobile_first: {
-            heading: 'Стратегія Mobile First: приклад',
-            content: `
-                <!-- Сюди додайте опис Mobile First та приклад коду, що демонструє цей підхід -->
+                // 4. Виводимо результат у консоль та alert
+                console_log('--- Результат Перевірки Дня Тижня ---');
+                console_log('Введене значення: day');
+                console_log('Відповідний день тижня: finish');
+
+                alert('Результат: finish');
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab4/lab4_2(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_2(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_2(3).png" alt="Фото" class="task-image">
+                </div>
             `
         },
+
+        ex3: {
+            heading: 'Завдання №3',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №3</strong>
+                </p>
+                <pre>
+                // 1. Оголошення та ініціалізація користувачів і паролів
+                const users = {
+                    "User1": "pass1",
+                    "User2": "pass2",
+                    "User3": "pass3"
+                };
+
+                let username = null; 
+                let password = null; 
+                let greeting = ''; 
+                const maxAttempts = 3; 
+                let loginAttempts = 0;
+
+                // Функція для приведення рядка до стандартного вигляду (обрізання пробілів)
+                const sanitizeInput = (input) => {
+                    return input ? input.trim() : input;
+                };
+
+
+                // Цикл запитів
+                while (username === null || username === '' && loginAttempts < maxAttempts) {
+                    username = prompt('Введіть логін (User1, User2 або User3) - Спроба loginAttempts + 1}/maxAttempts}:');
+                    username = sanitizeInput(username); // Обрізаємо пробіли
+
+                    if (username === null) {
+                        // Якщо натиснуто Cancel
+                        greeting = 'Введення скасовано. Будь ласка, оновіть сторінку.';
+                        break; 
+                    }
+
+                    if (username === '') {
+                        // Якщо введено порожній рядок
+                        loginAttempts++;
+                        alert("Порожнє введення. Будь ласка, введіть логін.");
+                    } else if (users.hasOwnProperty(username)) {
+                        // Якщо логін знайдено, виходимо з циклу для запиту пароля
+                        break;
+                    } else {
+                        // Якщо логін не знайдено
+                        alert("Логін не знайдено. Спробуйте ще раз.");
+                        loginAttempts++;
+                    }
+
+                    if (loginAttempts >= maxAttempts) {
+                        greeting = "Перевищено максимальну кількість спроб введення логіну. I don't know you";
+                        username = null; 
+                        break;
+                    }
+                }
+
+                // 2. Перевірка пароля та фінальний результат
+                if (users.hasOwnProperty(username)) {
+                    // Логін знайдено, запитуємо пароль
+                    let passwordAttempts = 0;
+                    const maxPasswordAttempts = 3;
+                    let isAuthenticated = false;
+
+                    while (passwordAttempts < maxPasswordAttempts) {
+                        password = prompt('Введіть пароль для користувача username: - Спроба passwordAttempts + 1}/maxPasswordAttempts}:');
+                        password = sanitizeInput(password);
+
+                        if (password === null) {
+                            greeting = 'Введення пароля скасовано. Будь ласка, оновіть сторінку.';
+                            break;
+                        }
+
+                        if (password === users[username]) {
+                            // Пароль співпадає
+                            greeting = 'Hello, username';
+                            isAuthenticated = true;
+                            break;
+                        } else {
+                            // Пароль не співпадає
+                            passwordAttempts++;
+                            alert("Невірний пароль. Спробуйте ще раз.");
+                        }
+                    }
+
+                    if (!isAuthenticated && passwordAttempts >= maxPasswordAttempts) {
+                        greeting = "Перевищено максимальну кількість спроб введення пароля. I don't know you";
+                    } else if (!isAuthenticated && password !== null) {
+                        // Якщо користувач натиснув Cancel при вводі пароля
+                        // greeting вже встановлено вище
+                    } else if (!isAuthenticated && username !== null) {
+                        // Забезпечення виводу "I don't know you" у випадку, якщо логін знайдено, але пароль не пройшов перевірку і не було Cancel
+                        greeting = greeting || "I don't know you";
+                    }
+                } else if (username !== null && username !== '' && !greeting) {
+                    // Цей блок спрацює, якщо логін не знайдено і не було Cancel, і не було перевищено спроби
+                    greeting = "I don't know you (Недійсний логін).";
+                }
+
+
+                // 3. Вивід результату
+                console.log('--- Результат Автентифікації ---';
+                console.log('Введений логін: username || 'Нічого не введено/Скасовано'}');
+                console.log('Фінальне повідомлення: $greeting');
+
+                // Вивід фінального повідомлення через alert
+                alert(greeting);
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab4/lab4_3(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_3(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_3(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex4: {
+            heading: 'Завдання №4',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №4</strong>
+                </p>
+                <pre>
+                // 1. Оголошення функції getShippingMessage
+
+                function getShippingMessage(country, price, deliveryFee) {
+                    // 1.1. Обчислення загальної вартості замовлення
+                    // Важливо: price і deliveryFee вже є числами завдяки parseInt/parseFloat
+                    const totalPrice = price + deliveryFee;
+
+                    // 1.2. Формування повідомлення за допомогою шаблонного рядка
+                    return 'Shipping to country will cost totalPrice credits';
+                }
+
+                // 2. Логіка обробки натискання кнопки
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Отримуємо посилання на HTML-елементи
+                    const countryInput = document.getElementById('country');
+                    const priceInput = document.getElementById('price');
+                    const deliveryFeeInput = document.getElementById('deliveryFee');
+                    const calculateButton = document.getElementById('calculateButton');
+                    const resultsContainer = document.getElementById('results-container');
+
+                    // Присвоюємо обробник події натискання кнопки
+                    calculateButton.addEventListener('click', () => {
+                        // Зчитуємо значення з полів введення
+                        const country = countryInput.value.trim();
+                        const price = parseFloat(priceInput.value); // Перетворюємо на число з плаваючою точкою
+                        const deliveryFee = parseFloat(deliveryFeeInput.value); // Перетворюємо на число з плаваючою точкою
+
+                        // Валідація введених даних
+                        if (!country || isNaN(price) || isNaN(deliveryFee) || price < 0 || deliveryFee < 0) {
+                            resultsContainer.textContent = "Помилка: Будь ласка, введіть коректні дані для всіх полів.";
+                            resultsContainer.style.color = 'red';
+                            console.error("Некоректні вхідні дані.");
+                            return; 
+                        }
+                        
+                        // Викликаємо функцію з отриманими параметрами
+                        const shippingMessage = getShippingMessage(country, price, deliveryFee);
+
+                        // Виводимо результат у консоль та на сторінку
+                        console.log("--- Результат розрахунку ---");
+                        console.log(shippingMessage);
+                        
+                        resultsContainer.textContent = shippingMessage;
+                        resultsContainer.style.color = '#343a40'; // Повертаємо нормальний колір
+                    });
+                });
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab4/lab4_4(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_4(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_4(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex5: {
+            heading: 'Завдання №5',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №5</strong>
+                </p>
+                <pre>
+                
+                // 1. Оголошення функції makeTransaction
+
+                function makeTransaction(quantity, pricePerDroid, customerCredits) {
+                    // 1.1. Оголошуємо та обчислюємо загальну суму замовлення
+                    const totalPrice = quantity * pricePerDroid;
+
+                    // 1.2. Додаємо перевірку, чи зможе клієнт оплатити замовлення
+                    if (totalPrice > customerCredits) {
+                        // Якщо сума до сплати перевищує кількість кредитів
+                        return "Insufficient funds!";
+                    } else {
+                        // В іншому випадку
+                        // Використовуємо шаблонний рядок для формування повідомлення
+                        return 'You ordered quantity droids worth totalPrice credits!';
+                    }
+                }
+
+
+                // 2. Логіка обробки форми
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Отримуємо посилання на HTML-елементи
+                    const quantityInput = document.getElementById('quantity');
+                    const pricePerDroidInput = document.getElementById('pricePerDroid');
+                    const customerCreditsInput = document.getElementById('customerCredits');
+                    const makeTransactionButton = document.getElementById('makeTransactionButton');
+                    const resultsContainer = document.getElementById('results-container');
+
+                    // Обробник події натискання кнопки
+                    makeTransactionButton.addEventListener('click', () => {
+                        // Зчитуємо та перетворюємо значення на число
+                        const quantity = parseInt(quantityInput.value);
+                        const pricePerDroid = parseFloat(pricePerDroidInput.value);
+                        const customerCredits = parseFloat(customerCreditsInput.value);
+
+                        // Валідація введених даних
+                        if (isNaN(quantity) || isNaN(pricePerDroid) || isNaN(customerCredits) || quantity < 0 || pricePerDroid < 0 || customerCredits < 0) {
+                            resultsContainer.textContent = "Помилка: Будь ласка, введіть коректні числові дані.";
+                            resultsContainer.style.color = '#dc3545'; 
+                            return;
+                        }
+
+                        // Викликаємо функцію з отриманими параметрами
+                        const transactionMessage = makeTransaction(quantity, pricePerDroid, customerCredits);
+
+                        // Виводимо результат у консоль
+                        console.log("--- Результат транзакції ---");
+                        console.log(transactionMessage);
+                        
+                        // Виводимо результат на сторінку
+                        resultsContainer.textContent = transactionMessage;
+                        
+                        // Встановлюємо колір результату
+                        if (transactionMessage === "Insufficient funds!") {
+                            resultsContainer.style.color = '#dc3545'; // Червоний для помилки
+                        } else {
+                            resultsContainer.style.color = '#28a745'; // Зелений для успіху
+                        }
+                    });
+                });
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab4/lab4_5(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_5(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_5(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex6: {
+            heading: 'Завдання №6',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №6</strong>
+                </p>
+                <pre>
+                
+                // 1. Оголошення функції makeArray
+                function makeArray(firstArray, secondArray, maxLength) {
+                    // 1.1. Створення нового масиву шляхом об'єднання двох масивів
+                    const newArray = firstArray.concat(secondArray);
+
+                    // 1.2. Перевірка довжини
+                    if (newArray.length > maxLength) {
+                        // Якщо довжина перевищує maxLength, повертаємо копію обрізаного масиву
+                        // Використовуємо slice(0, maxLength)
+                        const slicedArray = newArray.slice(0, maxLength);
+                        
+                        // Вивід у консоль 
+                        console.log('[makeArray] Довжина масиву (newArray.length}) перевищує maxLength ({maxLength}). Повернуто обрізаний масив: {slicedArray}');
+                        
+                        return slicedArray;
+                    } else {
+                        // В іншому випадку, повертаємо весь новий масив
+                        
+                        // Вивід у консоль
+                        console.log('[makeArray] Довжина масиву ({newArray.length}) не перевищує maxLength ({maxLength}). Повернуто повний масив: {newArray}');
+                        
+                        return newArray;
+                    }
+                }
+
+
+                // 2. Логіка обробки форми
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Отримуємо посилання на HTML-елементи
+                    const firstArrayInput = document.getElementById('firstArray');
+                    const secondArrayInput = document.getElementById('secondArray');
+                    const maxLengthInput = document.getElementById('maxLength');
+                    const processArrayButton = document.getElementById('processArrayButton');
+                    const resultsContainer = document.getElementById('results-container');
+
+                    // Функція для перетворення рядка на масив (розділення комою та обрізання пробілів)
+                    const stringToArray = (str) => {
+                        if (str.trim() === '') return [];
+                        return str.split(',').map(item => item.trim());
+                    };
+
+                    // Обробник події натискання кнопки
+                    processArrayButton.addEventListener('click', () => {
+                        // Зчитуємо та перетворюємо значення
+                        const firstArray = stringToArray(firstArrayInput.value);
+                        const secondArray = stringToArray(secondArrayInput.value);
+                        const maxLength = parseInt(maxLengthInput.value);
+
+                        // Валідація введених даних
+                        if (isNaN(maxLength) || maxLength < 0) {
+                            resultsContainer.textContent = "Помилка: Максимальна довжина має бути невід'ємним числом.";
+                            resultsContainer.style.color = '#dc3545';
+                            return;
+                        }
+
+                        // Викликаємо функцію з отриманими параметрами
+                        const finalArray = makeArray(firstArray, secondArray, maxLength);
+
+                        // Виводимо результат на сторінку
+                        const totalLength = firstArray.length + secondArray.length;
+                        
+                       
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab4/lab4_6(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_6(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_6(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex7: {
+            heading: 'Завдання №7',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №7</strong>
+                </p>
+                <pre>
+                // --- 1. Функція генерації масиву ---
+                function generateArray(size) {
+                    const arr = [];
+                    const MIN_VAL = 1;
+                    const MAX_VAL = 100;
+                    
+                    for (let i = 0; i < size; i++) {
+                        // Генеруємо випадкове ціле число від MIN_VAL до MAX_VAL
+                        arr.push(Math.floor(Math.random() * (MAX_VAL - MIN_VAL + 1)) + MIN_VAL);
+                    }
+                    return arr;
+                }
+
+
+                // --- 2. Функція переміщення мінімального елемента на початок ---
+                function moveMinToStart(arr) {
+                    if (arr.length === 0) {
+                        return arr;
+                    }
+
+                    // 2.1. Знаходимо мінімальний елемент та його індекс
+                    let minVal = arr[0];
+                    let minIndex = 0;
+
+                    for (let i = 1; i < arr.length; i++) {
+                        if (arr[i] < minVal) {
+                            minVal = arr[i];
+                            minIndex = i;
+                        }
+                    }
+
+                    // 2.2. Якщо мінімальний елемент вже на початку, повертаємо масив
+                    if (minIndex === 0) {
+                        return arr;
+                    }
+
+                    // 2.3. Зсув елементів вправо для звільнення місця на початку
+                    // Починаємо зсув від minIndex до 1
+                    for (let i = minIndex; i > 0; i--) {
+                        arr[i] = arr[i - 1];
+                    }
+
+                    // 2.4. Записуємо мінімальний елемент на початок 
+                    arr[0] = minVal;
+
+                    return arr;
+                }
+
+
+                // --- 3. Функція сортування методом вибору (за зменшенням) ---
+                function selectionSortDescending(arr) {
+                    const n = arr.length;
+                    // Створюємо копію, щоб не змінювати оригінальний масив безпосередньо
+                    const sortedArr = [...arr];
+
+                    for (let i = 0; i < n - 1; i++) {
+                        // Знаходимо індекс максимального елемента у підмасиві, що залишився (від i до n-1)
+                        let maxIndex = i;
+                        for (let j = i + 1; j < n; j++) {
+                            if (sortedArr[j] > sortedArr[maxIndex]) {
+                                maxIndex = j;
+                            }
+                        }
+
+                        // Міняємо знайдений максимальний елемент місцями з поточним елементом (на позиції i)
+                        if (maxIndex !== i) {
+                            [sortedArr[i], sortedArr[maxIndex]] = [sortedArr[maxIndex], sortedArr[i]]; // Обмін
+                        }
+                    }
+                    return sortedArr;
+                }
+
+
+                // --- 4. Логіка обробки форми ---
+                document.addEventListener('DOMContentLoaded', () => {
+                    const arraySizeInput = document.getElementById('arraySize');
+                    const processArrayButton = document.getElementById('processArrayButton');
+                    const resultsContainer = document.getElementById('results-container');
+
+                    processArrayButton.addEventListener('click', () => {
+                        const size = parseInt(arraySizeInput.value);
+
+                        if (isNaN(size) || size <= 0) {
+                            resultsContainer.innerHTML = '<p style="color: black;"> Помилка: Введіть коректну кількість елементів (число більше 0).</p>';
+                            return;
+                        }
+
+                        // 1. Генерація масиву
+                        let originalArray = generateArray(size);
+                        // Створюємо копію для першої операції, щоб зберегти originalArray для виводу
+                        let arrayAfterMinMove = [...originalArray]; 
+                        
+                        // 2. Завдання 1: Переміщення мінімуму на початок
+                        moveMinToStart(arrayAfterMinMove);
+
+                        // 3. Завдання 2: Сортування методом вибору (за зменшенням)
+                        let sortedArray = selectionSortDescending(originalArray);
+                        
+                        // --- Вивід у консоль ---
+                        console.log("--- Завдання 7: Обробка Масиву ---");
+                        console.log("1. Вхідний масив:", originalArray);
+                        console.log("2. Масив після переміщення мінімуму на початок:", arrayAfterMinMove);
+                        console.log("3. Відсортований масив (за зменшенням):", sortedArray);
+
+                        // --- Вивід на сторінку ---
+                        });
+                    });
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab4/lab4_7(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_7(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_7(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex8: {
+            heading: 'Завдання №8',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №8</strong>
+                </p>
+                <pre>
+                // --- Допоміжна функція для виводу масиву в консоль ---
+                function printArrayToConsole(label, arr) {
+                    console.log('\n--- {label} ---');
+                    arr.forEach((element, index) => {
+                        if (Array.isArray(element)) {
+                            // Якщо елемент є масивом (це рядок матриці), використовуємо join()
+                            console.log('Елемент {index} (Рядок): [{element.join(', ')}]');
+                        } else {
+                            // Якщо елемент не є масивом (це вставлене число 25), виводимо його без join()
+                            console.log('Елемент {index} (Число): {element}');
+                        }
+                    });
+                }
+
+                // 1. Оголошення та ініціалізація двовимірного масиву
+                const ROWS = 3;
+                const COLS = 3;
+                const MIN_VAL = -50; // Для від'ємних чисел
+                const MAX_VAL = 50;  // Для додатніх чисел
+
+                let twoDArray = [];
+
+                for (let i = 0; i < ROWS; i++) {
+                    let row = [];
+                    for (let j = 0; j < COLS; j++) {
+                        // Генерація псевдовипадкових чисел (від -50 до 50)
+                        const randomValue = Math.floor(Math.random() * (MAX_VAL - MIN_VAL + 1)) + MIN_VAL;
+                        row.push(randomValue);
+                    }
+                    twoDArray.push(row);
+                }
+
+                // Вивід початкового масиву
+                printArrayToConsole("Початковий двовимірний масив", twoDArray);
+
+                // --- Завдання 1: Зберегти перший і останній елементи ---
+                // Перший елемент масиву: twoDArray[0][0]
+                const firstElement = twoDArray[0][0];
+
+                // Останній елемент масиву: twoDArray[ROWS-1][COLS-1]
+                const lastElement = twoDArray[ROWS - 1][COLS - 1];
+
+                console.log("\n--- Збереження елементів ---");
+                console.log('Перший елемент: {firstElement} (twoDArray[0][0])');
+                console.log('Останній елемент: {lastElement} (twoDArray[{ROWS - 1}][{COLS - 1}])');
+
+
+                // --- Завдання 2: Вставити 25 після другого елемента масиву ---
+                // Вставляємо '25' після елемента з індексом 1, тобто на позицію 2.
+                const VALUE_TO_INSERT = 25;
+                twoDArray.splice(2, 0, VALUE_TO_INSERT); 
+
+
+                // Вивід масиву після вставки
+                printArrayToConsole('Масив після вставки {VALUE_TO_INSERT} після другого елемента (на індекс 2)', twoDArray);
+
+                // Демонстрація, що вставлений елемент тепер - це число, а не масив-рядок
+                console.log("\n--- Перевірка вставленого елемента ---");
+                console.log('Елемент на індексі 2: {twoDArray[2]}');
+                console.log('Тип елемента на індексі 2: {typeof twoDArray[2]}'');
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab4/lab4_8(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_8(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_8(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex9: {
+            heading: 'Завдання №9',
+            content: `
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab4/lab4_9(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_9(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab4/lab4_9(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
         
         visnovki4: {
             heading: 'ВИСНОВКИ (Лаб. №4)',
             content: `
-                <!-- Сюди додайте Висновки за результатами роботи -->
+            <p>
+            Завершуючи роботу над дев'ятьма практичними завданнями, ми успішно досягли поставленої мети: набули міцних практичних навичок роботи з ключовими конструкціями мови JavaScript, зокрема функціями, масивами та алгоритмами. У процесі реалізації JS-сценаріїв ми освоїли методи динамічної обробки даних, що включають генерацію масивів випадкових чисел, їх валідацію, а також застосування складних алгоритмів. Зокрема, ми відпрацювали ефективні підходи до маніпуляцій з масивами, як-от переміщення елементів (зокрема, мінімального елемента на початок зі зсувом) та використання класичних методів сортування, наприклад, сортування вибором, для впорядкування даних за зменшенням. Крім того, важливим аспектом роботи стало вміння інтегрувати логіку JavaScript з веб-сторінкою, використовуючи Document Object Model (DOM) для обробки подій, валідації вхідних даних, динамічного оновлення HTML-вмісту та реалізації інтерактивних елементів, таких як спливаючі підказки. Таким чином, набуті навички охоплюють як базові принципи функціонального програмування, так і практичне застосування JavaScript для створення динамічних і функціональних веб-рішень.
+            </p> 
             `
         },
     }

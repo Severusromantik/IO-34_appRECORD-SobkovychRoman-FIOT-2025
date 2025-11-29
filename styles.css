@@ -235,3 +235,29 @@ pre {
     font-family: 'Consolas', 'Courier New', monospace;
     font-size: 0.9rem;
 }
+
+
+
+
+
+/* СТИЛЬ ДЛЯ КОНТЕЙНЕРА ТРЬОХ ЗОБРАЖЕНЬ */
+.task-images-container {
+    display: flex; /* Увімкнення гнучкої моделі */
+    gap: 15px; /* Відступ між зображеннями */
+    justify-content: space-between; /* Розподіл простору між ними */
+    flex-wrap: wrap; /* Дозволяє переносити на новий рядок на мобільних пристроях */
+    margin-top: 20px;
+    border: none; /* Усуваємо рамку від старого .image-box */
+}
+
+/* СТИЛЬ ДЛЯ САМОГО ЗОБРАЖЕННЯ */
+.task-images-container img {
+    /* Кожне зображення займає трохи менше третини, залишаючи місце для відступів */
+    width: calc(33.33% - 10px); 
+    max-width: 100%; 
+    height: auto;
+    object-fit: contain; /* Забезпечує, що зображення повністю видно */
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+}
