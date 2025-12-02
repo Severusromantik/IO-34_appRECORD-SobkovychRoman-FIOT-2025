@@ -1830,7 +1830,799 @@ const labData = {
             </p> 
             `
         },
-    }
+    },
+
+    'lab5': {
+        title: 'Звіт з Лабораторної роботи №5',
+        
+        menuStructure: [
+            { id: 'tema5', text: 'Тема, Мета, Розташування (Лаб. №5)' },
+            { id: 'ex1_1', text: 'Завдання №1-1' },
+            { id: 'ex1_3', text: 'Завдання №1-3' },
+            { id: 'ex1_5', text: 'Завдання №1-5' },
+            { id: 'ex1_7', text: 'Завдання №1-7' },
+            { id: 'ex1_9', text: 'Завдання №1-9' },
+            { id: 'ex1_10', text: 'Завдання №1-10' },
+            { id: 'ex2_1', text: 'Завдання №2-1' },
+            { id: 'ex2_3', text: 'Завдання №2-3' },
+            { id: 'ex2_5', text: 'Завдання №2-5' },
+            { id: 'ex2_7', text: 'Завдання №2-7' },
+            { id: 'visnovki5', text: 'ВИСНОВКИ' }
+        ],
+        
+
+        tema5: {
+            heading: 'Тема, Мета, Розташування (Лаб. №5)',
+            content: `
+                <p>
+                    <strong>Тема:</strong> ОБ'ЄКТ. МЕТОДИ ОБ'ЄКТА. МАСИВ ОБ'ЄКТІВ. ДЕСТРУКТУРИЗАЦІЯ ОБ'ЄКТІВ. CALLBACK. СТРІЛОЧНІ ФУНКЦІЇ. СТРІЛОЧНІ ФУНКЦІЇ ЯК КОЛБЕКИ. ПЕРЕБИРАЮЧІ МЕТОДИ МАСИВУ
+                </p>
+                
+                <p>
+                    <strong>Мета:</strong>
+                    <ul>
+                        <li>Придбати практичні навички роботи з об'єктами, методами об'єктів, callback функціями, стрілочними функціями.</li>
+                        <li>Реалізувати низку практичних програм засовами мови JAVASCRIPT.</li>
+                    </ul>
+                </p>
+                
+                
+                <h4>Ресурси та розташування:</h4>
+            <ul>
+                <li>
+                    <strong>Репозиторій GitHub звіту:</strong> <a href="https://github.com/Severusromantik/IO-34_appRECORD-SobkovychRoman-FIOT-2025" target="_blank">Посилання GitHub-репозиторій звіту</a>
+                </li>
+                <li>
+                    <strong>Репозиторій GitHub cамостійних робіт:</strong> <a href="https://github.com/Severusromantik/IO-34_INDEPENDENT-SobkovychRoman-FIOT-2025" target="_blank">Посилання на GitHub-репозиторій cамостійних робіт (макет, ТЗ)</a>
+                </li>
+                <li>
+                    <strong>Репозиторій GitHub WEB застосунку:</strong> <a href="https://github.com/Severusromantik/IO-34_appWEB-SobkovychRoman-FIOT-2025" target="_blank">Посилання GitHub-репозиторій веб застосунку</a>
+                </li>
+                <li>
+                    <strong>Жива сторінка GitHub звіту:</strong> <a href="https://severusromantik.github.io/IO-34_appRECORD-SobkovychRoman-FIOT-2025/" target="_blank">Жива сторінка GitHub звіту</a>
+                </li>
+                <li>
+                    <strong>Жива сторінка GitHub cамостійних робіт:</strong> <a href="https://severusromantik.github.io/IO-34_INDEPENDENT-SobkovychRoman-FIOT-2025/" target="_blank">Жива сторінка GitHub cамостійних робіт (макет, ТЗ)</a>
+                </li>
+                <li>
+                    <strong>Жива сторінка GitHub WEB застосунку:</strong> <a href="https://severusromantik.github.io/IO-34_appWEB-SobkovychRoman-FIOT-2025/" target="_blank">Жива сторінка GitHub WEB застосунку</a>
+                </li>
+            </ul>
+            `
+        },
+        
+
+        ex1_1: {
+            heading: 'Завдання №1(1)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №1(1)</strong>
+                </p>
+                <pre>
+                /**
+                 * Функція-коллбек: логує об'єкт продукту в консоль.
+                 * @param {object} product - Об'єкт товару зі властивістю id.
+                 */
+                function logProduct(product) {
+                    console.log("--- Викликано logProduct ---");
+                    console.log("Створений продукт:", product);
+                }
+
+                /**
+                 * Функція-коллбек: логує загальну вартість товару (price * quantity).
+                 * @param {object} product - Об'єкт товару, що має властивості price та quantity.
+                 */
+                function logTotalPrice(product) {
+                    console.log("--- Викликано logTotalPrice ---");
+                    // Перевіряємо, чи є необхідні властивості для розрахунку
+                    if (product && typeof product.price === 'number' && typeof product.quantity === 'number') {
+                        const totalPrice = product.price * product.quantity;
+                        console.log('Загальна вартість товару "{product.name || 'Без назви'}": {totalPrice.toFixed(2)} грн');
+                    } else {
+                        console.log("Помилка: Об'єкт продукту не містить price та/або quantity.");
+                    }
+                }
+
+                /**
+                 * Створює об'єкт товару, додаючи унікальний ідентифікатор (id), 
+                 * і викликає коллбек, передаючи йому створений об'єкт.
+                 * * @param {object} obj - Об'єкт товару без id.
+                 * @param {function} callback - Функція, яка буде викликана зі створеним об'єктом.
+                 */
+                function createProduct(obj, callback) {
+                    console.log("Викликано createProduct...");
+                    
+                    // Створення унікального ідентифікатора (простий приклад на основі часу)
+                    const uniqueId = Date.now().toString(36) + Math.random().toString(36).substring(2, 5);
+                    
+                    // Створення нового об'єкта товару з доданим id
+                    const newProduct = {
+                        ...obj, // Копіюємо всі властивості з вхідного об'єкта
+                        id: uniqueId // Додаємо унікальний id
+                    };
+                    
+                    // Перевіряємо, чи є коллбек функцією, і викликаємо його
+                    if (typeof callback === 'function') {
+                        callback(newProduct);
+                    } else {
+                        console.warn("Попередження: Коллбек не є функцією або не був наданий.");
+                    }
+                }
+
+
+                // 1. Товар для демонстрації logProduct
+                const productData1 = {
+                    name: "Ноутбук Dell",
+                    price: 35000.00,
+                    quantity: 1,
+                    category: "Електроніка"
+                };
+
+                console.log("\n*** Приклад 1: Використання logProduct ***");
+                createProduct(productData1, logProduct);
+
+                // 2. Товар для демонстрації logTotalPrice
+                const productData2 = {
+                    name: "Ручка гелева",
+                    price: 15.50,
+                    quantity: 10,
+                    category: "Канцтовари"
+                };
+
+                console.log("\n*** Приклад 2: Використання logTotalPrice ***");
+                createProduct(productData2, logTotalPrice);
+
+                // 3. Використання двох коллбеків послідовно
+                console.log("\n*** Приклад 3: Послідовне використання двох коллбеків ***");
+                const productData3 = {
+                    name: "Фарба акрилова",
+                    price: 120.75,
+                    quantity: 5
+                };
+
+                // Створимо продукт і передамо коллбек, який викличе обидві функції
+                createProduct(productData3, (createdProduct) => {
+                    logProduct(createdProduct);
+                    logTotalPrice(createdProduct);
+                });
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab5/lab5_1_1(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_1_1(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_1_1(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex1_3: {
+            heading: 'Завдання №1(3)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №1(3)</strong>
+                </p>
+                <pre>
+                // Початковий об'єкт з назвами медикаментів та датами придатності
+                const medicines = {
+                    Агалгін: new Date("2022-05-01"),
+                    Ношпа: new Date("2025-07-02"),
+                    Альфахолін: new Date("2024-12-21"),
+                    Аспірин: new Date("2022-08-15"),
+                    Аспаркам: new Date("2024-04-18"),
+                };
+                const currentDate = new Date();
+
+                // Встановлюємо поточну дату для порівняння
+                console.log('Поточна дата для порівняння: {currentDate.toLocaleDateString('uk-UA')}');
+                console.log("---------------------------------------------------------");
+
+                // 1. Отримання масиву ключ-значення та фільтрація
+                // Використовуємо Object.entries() для перетворення об'єкта на масив пар [назва, дата]
+                const validMedicines = Object.entries(medicines)
+                    // 2. Фільтрація: залишаємо лише ті, термін зберігання яких ще не пройшов
+                    .filter(([name, expiryDate]) => expiryDate.getTime() > currentDate.getTime())
+                    
+                    // 3. Сортування: сортуємо за датою придатності у хронологічному порядку (від найближчої до найвіддаленішої)
+                    .sort(([name1, date1], [name2, date2]) => date1.getTime() - date2.getTime())
+
+                    // 4. Мапування: отримуємо масив лише назв препаратів
+                    .map(([name, expiryDate]) => name);
+
+                // Виведення результату
+                console.log("Масив медикаментів з чинним терміном зберігання, відсортований за датою:");
+                console.log(validMedicines); 
+
+                // Додатковий лог для демонстрації, які саме терміни пройшли
+                const expiredMedicines = Object.entries(medicines)
+                    .filter(([name, expiryDate]) => expiryDate.getTime() <= currentDate.getTime())
+                    .map(([name, expiryDate]) => '{name} (Термін до: {expiryDate.toLocaleDateString('uk-UA')})');
+
+                if (expiredMedicines.length > 0) {
+                    console.log("\nМедикаменти з простроченим терміном (були відфільтровані):");
+                    console.log(expiredMedicines);
+                }
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab5/lab5_1_3(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_1_3(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_1_3(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex1_5: {
+            heading: 'Завдання №1(5)',
+            content: `
+            <p>
+                <strong>Програмний код файлу .js завдання №1(5)</strong>
+            </p>
+            <pre>
+            const applyDiscountAndAddId = (productsArray) => {
+                // Коефіцієнт знижки
+                const discountFactor = 0.8;
+                
+                // Використовуємо map() для перетворення кожного об'єкта в новий масив
+                const modifiedProducts = productsArray.map((product, index) => {
+                    
+                    // 1. Додаємо унікальний ID. Для простоти використовуємо індекс + 1.
+                    const uniqueId = index + 1; 
+                    
+                    // 2. Обчислюємо нову ціну зі знижкою 20%
+                    const discountedPrice = product.price * discountFactor;
+                    
+                    // 3. Повертаємо новий об'єкт
+                    return {
+                        id: uniqueId,
+                        name: product.name,
+                        // Округляємо ціну до двох знаків після коми
+                        price: parseFloat(discountedPrice.toFixed(2)) 
+                    };
+                });
+                
+                return modifiedProducts;
+            };
+
+            // Вхідний масив
+            const fruits = [
+                { name: "apple", price: 200 },
+                { name: "orange", price: 300 },
+                { name: "grapes", price: 750 },
+            ];
+
+            console.log("--- Оригінальний масив фруктів ---");
+            console.log(fruits);
+
+            // Викликаємо функцію
+            const discountedFruits = applyDiscountAndAddId(fruits);
+
+            console.log("\n--- Новий масив (ID додано, знижка 20% застосована) ---");
+            console.log(discountedFruits);
+
+
+            </pre>
+            <p>
+                <strong>Фото роботи програми</strong>
+            </p>
+            <div class="task-images-container">
+                <img src="img_lab5/lab5_1_5(1).png" alt="Фото" class="task-image">
+                <img src="img_lab5/lab5_1_5(2).png" alt="Фото" class="task-image">
+                <img src="img_lab5/lab5_1_5(3).png" alt="Фото" class="task-image">
+            </div>
+            `
+        },
+
+        ex1_7: {
+            heading: 'Завдання №1(7)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №1(7)</strong>
+                </p>
+                <pre>
+                /**
+                 * Клас Client для створення об'єктів з приватними властивостями #login та #email.
+                 * Доступ та зміна цих властивостей можливі лише через публічні геттери та сеттери.
+                 */
+                class Client {
+                    // 1. Оголошення приватних полів (private class fields)
+                    #login;
+                    #email;
+
+                    /**
+                     * Конструктор класу Client
+                     * @param {string} login - Вхідний логін
+                     * @param {string} email - Вхідний email
+                     */
+                    constructor(login, email) {
+                        // Використовуємо сеттери для ініціалізації, щоб скористатися логікою валідації (якщо вона є)
+                        this.login = login; 
+                        this.email = email;
+                        console.log('Створено нового клієнта: {this.#login}');
+                    }
+
+                    // 2. Геттер для доступу до приватного поля #login
+                    get login() {
+                        // Повертає значення приватного поля
+                        return this.#login; 
+                    }
+
+                    // 3. Сеттер для зміни приватного поля #login
+                    set login(newLogin) {
+                        // Можна додати логіку валідації, наприклад, перевірку на порожній рядок
+                        if (typeof newLogin === 'string' && newLogin.trim() !== '') {
+                            this.#login = newLogin.trim();
+                        } else {
+                            console.error("Помилка: Логін має бути непорожнім рядком.");
+                        }
+                    }
+
+                    // 4. Геттер для доступу до приватного поля #email
+                    get email() {
+                        return this.#email;
+                    }
+
+                    // 5. Сеттер для зміни приватного поля #email
+                    set email(newEmail) {
+                        // Приклад простої валідації формату email
+                        if (typeof newEmail === 'string' && newEmail.includes('@') && newEmail.trim() !== '') {
+                            this.#email = newEmail.trim();
+                        } else {
+                            console.error("Помилка: Email має бути коректним.");
+                        }
+                    }
+
+                    /**
+                     * Публічний метод для демонстрації роботи
+                     */
+                    getClientInfo() {
+                        return 'Логін: {this.#login}, Email: {this.#email}';
+                    }
+                }
+
+
+                const user1 = new Client("user_one", "one@example.com");
+
+                console.log("\n--- Інформація про Клієнта 1 (через публічний метод) ---");
+                console.log(user1.getClientInfo());
+
+                console.log("\n--- Доступ до властивостей через Геттери ---");
+                console.log('Логін: {user1.login}'); // Викликає геттер login()
+                console.log('Email: {user1.email}'); // Викликає геттер email()
+
+                console.log("\n--- Зміна властивостей через Сеттери ---");
+                user1.login = "new_login"; // Викликає сеттер login(newLogin)
+                user1.email = "newlogin.new@corp.com"; // Викликає сеттер email(newEmail)
+
+                console.log('Новий логін (після зміни): {user1.login}');
+                console.log('Новий email (після зміни): {user1.email}');
+
+
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab5/lab5_1_7(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_1_7(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_1_7(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex1_9: {
+            heading: 'Завдання №1(9)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №1(9)</strong>
+                </p>
+                <pre>
+                
+                const countTags = (tweets) => {
+                    // Використовуємо reduce() для ітерації по масиву твітів та накопичення результату в об'єкті.
+                    const tagsCount = tweets.reduce((accumulator, tweet) => {
+                        
+                        // Для кожного твіта ітеруємо по його масиву тегів.
+                        // Це внутрішня ітерація (forEach або for...of).
+                        tweet.tags.forEach(tag => {
+                            // Перевіряємо, чи існує цей тег вже у нашому об'єкті-акумуляторі.
+                            if (accumulator.hasOwnProperty(tag)) {
+                                // Якщо існує, збільшуємо його лічильник на 1.
+                                accumulator[tag] += 1;
+                            } else {
+                                // Якщо не існує, ініціалізуємо лічильник значенням 1.
+                                accumulator[tag] = 1;
+                            }
+                        });
+
+                        // Повертаємо оновлений об'єкт-акумулятор для наступної ітерації.
+                        return accumulator;
+                        
+                    }, {}); // Початкове значення акумулятора - порожній об'єкт {}
+
+                    return tagsCount;
+                };
+
+                // Вхідний масив
+                const tweets = [
+                    { id: "000", likes: 5, tags: ["js", "nodejs"] },
+                    { id: "001", likes: 2, tags: ["html", "css"] },
+                    { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+                    { id: "003", likes: 8, tags: ["css", "react"] },
+                    { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+                ];
+
+                console.log("--- Оригінальний масив твітів ---");
+                console.log(tweets);
+
+                // Викликаємо функцію та отримуємо результат
+                const tagFrequencies = countTags(tweets);
+
+                console.log("\n--- Об'єкт з кількістю кожного тега ---");
+                console.log(tagFrequencies); 
+
+
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab5/lab5_1_9(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_1_9(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_1_9(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex1_10: {
+            heading: 'Завдання №1(10)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №1(10)</strong>
+                </p>
+                <pre>
+                
+                const checkBrackets = (str) => {
+                    // 1. Ініціалізація Стека (використовуємо масив як Стек)
+                    const stack = []; 
+                    
+                    // 2. Визначення пар дужок для швидкої перевірки
+                    const map = {
+                        '(': ')',
+                        '{': '}',
+                        '[': ']',
+                    };
+
+                    // 3. Ітерація по кожному символу рядка
+                    for (let i = 0; i < str.length; i++) {
+                        const char = str[i];
+
+                        // 3.1. Якщо символ є ВІДКРИВАЮЧОЮ дужкою
+                        if (map.hasOwnProperty(char)) {
+                            // Додаємо його до Стека (push)
+                            stack.push(char);
+                        } 
+                        
+                        // 3.2. Якщо символ є ЗАКРИВАЮЧОЮ дужкою
+                        else if (Object.values(map).includes(char)) {
+                            // Перевіряємо, чи Стек порожній. 
+                            if (stack.length === 0) {
+                                return false; // Помилка: немає відповідної відкритої дужки
+                            }
+                            
+                            // Дістаємо останню відкриту дужку зі Стека (pop)
+                            const lastOpenBracket = stack.pop(); 
+                            
+                            // Перевіряємо, чи дістана відкрита дужка відповідає поточній закритій дужці
+                            if (map[lastOpenBracket] !== char) {
+                                return false; // Помилка: неправильний тип закритої дужки
+                            }
+                        }
+                        
+                    }
+
+                    // 4. Фінальна перевірка
+                    // Якщо Стек порожній, це означає, що всі відкриті дужки були коректно закриті.
+                    // Якщо Стек не порожній, деякі відкриті дужки залишилися незакритими.
+                    return stack.length === 0;
+                };
+
+
+                console.log("--- Перевірка коректних рядків ---");
+                console.log('({})[]: {checkBrackets("({})[]")}');         
+                console.log('(a + b) * {c[d]}: {checkBrackets("(a + b) * {c[d]}")}'); 
+                console.log('function fn() { return true; }: {checkBrackets("function fn() { return true; }")}');
+                console.log('[]{}(): {checkBrackets("[]{}(())")}');        
+
+
+                console.log("\n--- Перевірка некоректних рядків ---");
+                console.log('([]: {checkBrackets("([]")}');             
+                console.log('{[)}: {checkBrackets("{[)}")}');           
+                console.log('))}: {checkBrackets("))")}');             
+                console.log('{}: {checkBrackets("{")}');                
+                console.log('[a]b(c{d}: {checkBrackets("[a]b(c{d")}');  
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab5/lab5_1_10(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_1_10(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_1_10(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+
+        ex2_1: {
+            heading: 'Завдання №2(1)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №2(1)</strong>
+                </p>
+                <pre>
+                const flattenValues = (dataArray) => {
+                    // flatMap() спочатку викликає функцію відображення (map) для кожного елемента,
+                    // а потім згладжує результат на один рівень.
+                    const allValues = dataArray.flatMap(item => {
+                        // Для кожного об'єкта ми повертаємо масив, що знаходиться у властивості 'values'.
+                        return item.values;
+                    });
+                
+                    return allValues;
+                };
+                
+                // Вхідний масив об'єктів
+                const data = [
+                    { id: 1, values: [1, 2, 3] },
+                    { id: 2, values: [4, 5, 6] },
+                    { id: 3, values: [7, 8, 9] },
+                ];
+                
+                console.log("--- Оригінальний масив об'єктів ---");
+                console.log(data);
+                
+                // Викликаємо функцію та отримуємо результат
+                const result = flattenValues(data);
+                
+                console.log("\n--- Згладжений масив значень ---");
+                console.log(result); 
+                
+                
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab5/lab5_2_1(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_2_1(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_2_1(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex2_3: {
+            heading: 'Завдання №2(3)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №2(3)</strong>
+                </p>
+                <pre>
+                const checkAllEven = (arr) => {
+                    // Використовуємо метод every() для перевірки всіх елементів.
+                    const isEveryElementEven = arr.every(number => {
+                        return number % 2 === 0;
+                    });
+                
+                    return isEveryElementEven;
+                };
+                
+                // Вхідний масив
+                const numbers = [2, 4, 6, 8, 10];
+                
+                console.log("--- Оригінальний масив ---");
+                console.log(numbers);
+                
+                // Викликаємо функцію
+                const result = checkAllEven(numbers);
+                
+                console.log("\n--- Результат перевірки: чи є кожен елемент парним? ---");
+                console.log(result); 
+                
+                // Приклад з непарним числом для демонстрації false
+                const mixedNumbers = [2, 4, 7, 8, 10];
+                const mixedResult = checkAllEven(mixedNumbers);
+                console.log('\nПеревірка масиву [2, 4, 7, 8, 10]: {mixedResult}');
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab5/lab5_2_3(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_2_3(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_2_3(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex2_5: {
+            heading: 'Завдання №2(5)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №2(5)</strong>
+                </p>
+                <pre>
+                const sortStringsAlphabetically = (arr) => {
+                    // Метод sort() без функції порівняння сортує рядки за алфавітом.
+                    arr.sort();
+                    return arr;
+                };
+                
+                // Вхідний масив
+                const stringArray = ['banana', 'orange', 'apple', 'pear'];
+                
+                console.log("--- Оригінальний масив ---");
+                console.log(stringArray);
+                
+                // Викликаємо функцію. 
+                const sortedArray = sortStringsAlphabetically(stringArray);
+                
+                console.log("\n--- Відсортований масив ---");
+                console.log(sortedArray); 
+                
+                
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab5/lab5_2_5(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_2_5(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_2_5(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex2_7: {
+            heading: 'Завдання №2(7)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №2(7)</strong>
+                </p>
+                <pre>
+                /**
+                 * Клас Calculator, який дозволяє виконувати послідовні арифметичні
+                 * операції над числом
+                 */
+                class Calculator {
+                    // Приватне поле для зберігання поточного результату
+                    #result = 0;
+
+                    /**
+                     * Конструктор. Ініціалізує результат нулем.
+                     */
+                    constructor() {
+                        this.#result = 0;
+                    }
+
+                    /**
+                     * Встановлює початкове значення для обчислень.
+                     */
+                    number(value) {
+                        if (typeof value !== 'number') {
+                            throw new Error("Значення має бути числом.");
+                        }
+                        this.#result = value;
+                        return this;
+                    }
+
+                    /**
+                     * Додає value до поточного значення.
+                     */
+                    add(value) {
+                        if (typeof value !== 'number') {
+                            throw new Error("Значення має бути числом.");
+                        }
+                        this.#result += value;
+                        return this;
+                    }
+
+                    /**
+                     * Віднімає value від поточного значення.
+                     */
+                    subtract(value) {
+                        if (typeof value !== 'number') {
+                            throw new Error("Значення має бути числом.");
+                        }
+                        this.#result -= value;
+                        return this;
+                    }
+
+                    /**
+                     * Множить поточне значення на value.
+                     */
+                    multiply(value) {
+                        if (typeof value !== 'number') {
+                            throw new Error("Значення має бути числом.");
+                        }
+                        this.#result *= value;
+                        return this;
+                    }
+
+                    /**
+                     * Ділить поточне значення на value.
+                     */
+                    divide(value) {
+                        if (typeof value !== 'number') {
+                            throw new Error("Значення має бути числом.");
+                        }
+                        if (value === 0) {
+                            throw new Error("Неможливо виконати ділення на нуль.");
+                        }
+                        this.#result /= value;
+                        return this;
+                    }
+
+                    /**
+                     * Повертає поточний результат усіх операцій.
+                     */
+                    getResult() {
+                        return this.#result;
+                    }
+                }
+
+
+                const calc = new Calculator();
+
+                try {
+                    const result = calc
+                        .number(10)      // Встановлюємо початкове значення 10
+                        .add(5)          // Додаємо 5 (15)
+                        .subtract(3)     // Віднімаємо 3 (12)
+                        .multiply(4)     // Множимо на 4 (48)
+                        .divide(2)       // Ділимо на 2 (24)
+                        .getResult();    // Отримуємо результат
+
+                    console.log("Очікуваний результат (24):", result);
+
+                    console.log("\n--- Додатковий приклад ---");
+                    const result2 = new Calculator()
+                        .number(100)
+                        .divide(20)      // 5
+                        .subtract(10)    // -5
+                        .getResult();
+                        
+                    console.log("Додатковий результат (-5):", result2);
+
+                    console.log("\n--- Приклад ділення на нуль ---");
+                    new Calculator().number(10).divide(0);
+                } catch (error) {
+                    console.error('[Перехоплена помилка]: {error.message}');
+                }
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab5/lab5_2_7(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_2_7(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab5/lab5_2_7(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        visnovki5: {
+            heading: 'ВИСНОВКИ (Лаб. №5)',
+            content: `
+            <p>
+            Виконання практичних завдань дозволило ефективно засвоїти ключові концепції сучасної мови JavaScript, зосереджуючись на роботі з об'єктами та масивами. Було набуто навичок у створенні та маніпулюванні об'єктами, включаючи використання приватних властивостей та механізмів геттерів/сеттерів для контролю доступу. Особлива увага приділялася деструктуризації об'єктів та масивів, що значно спрощує вилучення даних у коллбеках. Успішно застосовано функціональний підхід через стрілочні функції, які продемонстрували свою стислість та ефективність, зокрема як коллбеки у відкладених операціях. Найважливішим стало освоєння перебираючих методів масиву (map, filter, reduce, every, flatMap, sort), які дозволили здійснювати складні трансформації даних (як-от підрахунок тегів чи фільтрація за датою) чистим та незмінним способом. Це зміцнило розуміння того, як ці сучасні інструменти забезпечують лаконічну та потужну реалізацію програмних рішень.
+            </p> 
+            `
+        },
+    },
 };
 
 document.addEventListener('DOMContentLoaded', () => {
