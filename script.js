@@ -2623,6 +2623,518 @@ const labData = {
             `
         },
     },
+
+    'lab6': {
+        title: 'Звіт з Лабораторної роботи №6',
+        
+        menuStructure: [
+            { id: 'tema6', text: 'Тема, Мета, Розташування (Лаб. №6)' },
+            { id: 'ex6_1', text: 'Завдання №6-1' },
+            { id: 'ex6_3', text: 'Завдання №6-3' },
+            { id: 'ex6_5', text: 'Завдання №6-5' },
+            { id: 'ex6_7', text: 'Завдання №6-7' },
+            { id: 'ex6_8', text: 'Завдання №6-8' },
+            { id: 'ex6_9', text: 'Завдання №6-9' },
+            { id: 'ex6_10', text: 'Завдання №6-10' },
+            { id: 'visnovki6', text: 'ВИСНОВКИ' }
+        ],
+        
+
+        tema6: {
+            heading: 'Тема, Мета, Розташування (Лаб. №6)',
+            content: `
+                <p>
+                    <strong>Тема:</strong> ПРОТОТИПИ. КЛАСИ. ОБ'ЄКТНА МОДЕЛЬ ДОКУМЕНТА (DOM). ПОДІЇ. ОБ'ЄКТ ПОДІЇ. ДЕЛЕГУВАННЯ ПОДІЙ. 
+                </p>
+                
+                <p>
+                    <strong>Мета:</strong>
+                    <ul>
+                        <li>Придбати практичні навички роботи з DOM, подіями та делегуванням подій. </li>
+                        <li>Реалізувати низку практичних програм засовами мови JAVASCRIPT.</li>
+                    </ul>
+                </p>
+                
+                
+                <h4>Ресурси та розташування:</h4>
+            <ul>
+                <li>
+                    <strong>Репозиторій GitHub звіту:</strong> <a href="https://github.com/Severusromantik/IO-34_appRECORD-SobkovychRoman-FIOT-2025" target="_blank">Посилання GitHub-репозиторій звіту</a>
+                </li>
+                <li>
+                    <strong>Репозиторій GitHub cамостійних робіт:</strong> <a href="https://github.com/Severusromantik/IO-34_INDEPENDENT-SobkovychRoman-FIOT-2025" target="_blank">Посилання на GitHub-репозиторій cамостійних робіт (макет, ТЗ)</a>
+                </li>
+                <li>
+                    <strong>Репозиторій GitHub WEB застосунку:</strong> <a href="https://github.com/Severusromantik/IO-34_appWEB-SobkovychRoman-FIOT-2025" target="_blank">Посилання GitHub-репозиторій веб застосунку</a>
+                </li>
+                <li>
+                    <strong>Жива сторінка GitHub звіту:</strong> <a href="https://severusromantik.github.io/IO-34_appRECORD-SobkovychRoman-FIOT-2025/" target="_blank">Жива сторінка GitHub звіту</a>
+                </li>
+                <li>
+                    <strong>Жива сторінка GitHub cамостійних робіт:</strong> <a href="https://severusromantik.github.io/IO-34_INDEPENDENT-SobkovychRoman-FIOT-2025/" target="_blank">Жива сторінка GitHub cамостійних робіт (макет, ТЗ)</a>
+                </li>
+                <li>
+                    <strong>Жива сторінка GitHub WEB застосунку:</strong> <a href="https://severusromantik.github.io/IO-34_appWEB-SobkovychRoman-FIOT-2025/" target="_blank">Жива сторінка GitHub WEB застосунку</a>
+                </li>
+            </ul>
+            `
+        },
+        
+
+        ex6_1: {
+            heading: 'Завдання №6(1)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №1(1)</strong>
+                </p>
+                <pre>
+                // 1. Отримуємо посилання на елементи DOM
+                const inputField = document.getElementById('dataInput');
+                const showButton = document.getElementById('showMeBtn');
+
+                /**
+                 * Обробник події кліку.
+                 * Витягує значення з поля введення та логує його в консоль.
+                 */
+                function handleShowMeClick() {
+                    // 2. Отримуємо поточне значення з поля введення
+                    const inputValue = inputField.value;
+
+                    // 3. Виводимо значення у консоль
+                    console.log("-----------------------------------------");
+                    console.log("Значення з поля введення:");
+                    console.log(inputValue);
+                    console.log("-----------------------------------------");
+
+                }
+
+                // 4. Встановлюємо слухач події (Event Listener) на кнопку
+                showButton.addEventListener('click', handleShowMeClick);
+
+                console.log("Скрипт завантажено. Введіть текст і натисніть кнопку.");
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab6/lab6_1(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_1(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_1(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex6_3: {
+            heading: 'Завдання №6(3)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №6(3)</strong>
+                </p>
+                <pre>
+                // 1. Отримуємо посилання на елементи DOM
+                const inputField = document.getElementById('secretInput');
+                const toggleButton = document.getElementById('toggleBtn');
+
+                // Зберігаємо стан (видимий чи прихований). Початковий стан - видимий (false)
+                let isHidden = false; 
+
+                /**
+                 * Обробник події, який перемикає тип поля введення та назву кнопки.
+                 */
+                function handleToggle() {
+                    // 2. Інвертуємо поточний стан
+                    isHidden = !isHidden; 
+
+                    if (isHidden) {
+                        // Зміна типу поля введення на 'password'
+                        // Введена інформація стає зірочками
+                        inputField.type = 'password'; 
+                        
+                        // Зміна кнопки
+                        toggleButton.textContent = 'Розкрити';
+                        // Додаємо клас або атрибут для стилізації, якщо потрібно
+                        toggleButton.setAttribute('data-state', 'hidden'); 
+                        
+                    } else {
+                        // Зміна типу поля введення назад на 'text'
+                        inputField.type = 'text'; // Введена інформація стає видимою
+
+                        // Зміна кнопки
+                        toggleButton.textContent = 'Приховати';
+                        toggleButton.removeAttribute('data-state'); 
+                    }
+                    
+                    // Щоб зберегти фокус на полі після зміни типу
+                    inputField.focus(); 
+                }
+
+                // 3. Встановлюємо слухач події кліку на кнопку
+                toggleButton.addEventListener('click', handleToggle);
+
+                console.log("Скрипт завантажено. Тепер приховується лише вміст поля введення.");
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab6/lab6_3(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_3(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_3(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex6_5: {
+            heading: 'Завдання №6(5)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №6(5)</strong>
+                </p>
+                <pre>
+                // 1. Отримуємо посилання на елемент, який потрібно перевірити
+                const placeElement = document.getElementById('place');
+
+                /**
+                 * Обробник події кліку на глобальному об'єкті window.
+                 * * @param {Event} event - Об'єкт події.
+                 */
+                function handleWindowClick(event) {
+
+                    const isClickedInside = placeElement.contains(event.target);
+
+                    // Виведення результату в консоль згідно з умовою
+                    console.log('Клік всередині зеленого прямокутника? {isClickedInside}');
+                    
+                    // Додатково: логуємо елемент, на який клікнули, для повноти
+                    console.log('Елемент, на який клікнули: {event.target.tagName} (ID: {event.target.id || 'N/A'})');
+                    console.log("-----------------------------------------");
+                }
+
+                // 4. Додаємо слухач кліку на window.
+                window.addEventListener('click', handleWindowClick);
+
+                console.log("Скрипт завантажено. Клікайте де завгодно на сторінці.");
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab6/lab6_5(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_5(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_5(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex6_7: {
+            heading: 'Завдання №6(7)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №6(7)</strong>
+                </p>
+                <pre>
+                /**
+                 * Функція для аналізу структури категорій та виведення результатів у консоль.
+                 */
+                function analyzeCategories() {
+                    
+                    // 1. Отримуємо колекцію всіх елементів li.item (всіх категорій)
+                    const categoryItems = document.querySelectorAll('#categories > .item');
+
+                    // 2. Рахуємо та виводимо загальну кількість категорій
+                    console.log("-----------------------------------------");
+                    console.log('Number of categories: {categoryItems.length}');
+                    console.log("-----------------------------------------");
+
+                    // 3. Ітеруємо по кожній категорії li.item
+                    categoryItems.forEach(item => {
+                        
+                        // Знаходимо заголовок (h2) всередині поточного елемента li.item
+                        // Використовуємо querySelector, щоб знайти елемент лише в межах поточного 'item'
+                        const titleElement = item.querySelector('h2');
+                        const categoryName = titleElement ? titleElement.textContent : 'No Title';
+                        
+                        // Знаходимо всі вкладені елементи li
+                        // Використовуємо querySelectorAll, щоб знайти всі li, які є частиною цієї категорії
+                        const elementsList = item.querySelectorAll('li');
+                        const elementCount = elementsList.length;
+
+                        // Виводимо результат для поточної категорії
+                        console.log('Category: {categoryName}');
+                        console.log('Elements: {elementCount}');
+                    });
+                    
+                    console.log("-----------------------------------------");
+                }
+
+                // Запускаємо функцію після завантаження DOM
+                document.addEventListener('DOMContentLoaded', analyzeCategories);
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab6/lab6_7(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_7(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_7(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex6_8: {
+            heading: 'Завдання №6(8)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №6(8)</strong>
+                </p>
+                <pre>
+                // Отримуємо посилання на форму
+                const loginForm = document.querySelector('.login-form');
+
+                /**
+                 * Обробник події відправлення (submit) форми.
+                 * @param {Event} event - Об'єкт події.
+                 */
+                function handleFormSubmit(event) {
+                    
+                    // 1. Запобігаємо перезавантаженню сторінки (стандартна поведінка submit)
+                    event.preventDefault();
+
+                    // 2. Використовуємо властивість elements для доступу до полів
+                    const formElements = event.currentTarget.elements;
+                    
+                    // Змінна для збору даних
+                    const data = {};
+                    
+                    let isFormValid = true;
+
+                    // 3. Перевірка на незаповнені поля та збір даних
+                    for (const element of formElements) {
+                        
+                        // Перевіряємо, чи є елемент полем введення (input)
+                        if (element.tagName === 'INPUT') {
+                            
+                            const value = element.value.trim();
+                            
+                            // Якщо поле пусте, позначаємо форму як невалідовану
+                            if (value === '') {
+                                isFormValid = false;
+                                break; 
+                            }
+                            
+                            // Збираємо дані: ключ - name, значення - очищене value
+                            data[element.name] = value;
+                        }
+                    }
+
+                    // 4. Валідація та подальші дії
+                    if (!isFormValid) {
+                        alert('All form fields must be filled in');
+                        
+                    } else {     
+                        // Виводимо об'єкт з даними в консоль
+                        console.log("--- Форма відправлена успішно ---");
+                        console.log(data);
+                        console.log("---------------------------------");
+                        
+                        // Очищаємо значення полів форми
+                        event.currentTarget.reset();
+                    }
+                }
+
+                // 5. Обробка відправлення форми за подією submit
+                loginForm.addEventListener('submit', handleFormSubmit);
+
+                console.log("Скрипт управління формою логіна завантажено.");
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab6/lab6_8(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_8(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_8(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex6_9: {
+            heading: 'Завдання №6(9)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №6(9)</strong>
+                </p>
+                <pre>
+                /**
+                 * Функція для генерації випадкового кольору у hex-форматі.
+                 * @returns {string} Випадковий Hex-колір, наприклад, #FF5733.
+                 */
+                function getRandomHexColor() {
+                    return '#{Math.floor(Math.random() * 16777215)
+                    .toString(16)
+                    .padStart(6, 0)}';
+                }
+                
+                // Отримуємо посилання на елементи DOM
+                const body = document.querySelector('body');
+                const changeColorButton = document.querySelector('.change-color');
+                const colorSpan = document.querySelector('.color');
+                
+                /**
+                 * Обробник події кліку, який змінює колір фону.
+                 */
+                function handleChangeColor() {
+                    
+                    // Генеруємо випадковий колір
+                    const randomColor = getRandomHexColor();
+                    
+                    // Змінюємо колір фону <body> через інлайн-стиль
+                    body.style.backgroundColor = randomColor;
+                    
+                    // Задаємо згенероване значення кольору текстовим вмістом для span.color
+                    colorSpan.textContent = randomColor;
+                
+                    console.log('Фон змінено на: {randomColor}');
+                }
+                
+                // Встановлюємо слухач події на кнопку
+                changeColorButton.addEventListener('click', handleChangeColor);
+                
+                console.log("Скрипт завантажено. Натисніть кнопку для зміни кольору.");
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab6/lab6_9(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_9(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_9(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        ex6_10: {
+            heading: 'Завдання №6(10)',
+            content: `
+                <p>
+                    <strong>Програмний код файлу .js завдання №6(10)</strong>
+                </p>
+                <pre>
+                // Функція для генерації випадкового кольору у hex-форматі
+                function getRandomHexColor() {
+                    return '#{Math.floor(Math.random() * 16777215)
+                    .toString(16)
+                    .padStart(6, 0)}';
+                }
+                
+                // 1. Отримуємо посилання на елементи DOM
+                const controls = document.getElementById('controls');
+                const input = controls.querySelector('input');
+                const createButton = controls.querySelector('[data-create]');
+                const destroyButton = controls.querySelector('[data-destroy]');
+                const boxesContainer = document.getElementById('boxes');
+                
+                // Початковий розмір для першого елемента
+                const INITIAL_SIZE = 30;
+                // Крок збільшення розміру
+                const SIZE_INCREMENT = 10;
+                
+                /**
+                 * Створює колекцію елементів <div>.
+                 * @param {number} amount - Кількість елементів для рендеру.
+                 */
+                function createBoxes(amount) {
+                    // Очищуємо стару колекцію перед створенням нової
+                    destroyBoxes(); 
+                
+                    const fragment = document.createDocumentFragment();
+                    let currentSize = INITIAL_SIZE;
+                    
+                    // Створюємо елементи у циклі
+                    for (let i = 0; i < amount; i++) {
+                        const box = document.createElement('div');
+                        
+                        // Встановлюємо розміри
+                        box.style.width = '{currentSize}px';
+                        box.style.height = '{currentSize}px';
+                        
+                        // Встановлюємо випадковий колір фону
+                        box.style.backgroundColor = getRandomHexColor();
+                        
+                        // Додаємо елемент у фрагмент
+                        fragment.appendChild(box);
+                        
+                        // Збільшуємо розмір для наступного елемента
+                        currentSize += SIZE_INCREMENT;
+                    }
+                
+                    // Додаємо всі елементи з фрагмента в DOM за один раз (для оптимізації)
+                    boxesContainer.appendChild(fragment);
+                }
+                
+                /**
+                 * Очищає вміст div#boxes, видаляючи всі створені елементи.
+                 */
+                function destroyBoxes() {
+                    // Найшвидший спосіб очистити вміст DOM-елемента
+                    boxesContainer.innerHTML = ''; 
+                }
+                
+                /**
+                 * Обробник події для кнопки Create.
+                 */
+                function handleCreateClick() {
+                    const amount = Number(input.value);
+                
+                    // Валідація: перевіряємо, чи значення в межах від 1 до 100
+                    if (amount >= 1 && amount <= 100) {
+                        
+                        // Рендеримо колекцію
+                        createBoxes(amount);
+                        
+                        // Очищаємо значення в інпуті
+                        input.value = '';
+                        
+                    } else {
+                        alert("Будь ласка, введіть число від 1 до 100 включно.");
+                        input.value = ''; // Очищаємо невірне значення
+                    }
+                }
+                
+                // Додаємо слухачі подій
+                createButton.addEventListener('click', handleCreateClick);
+                destroyButton.addEventListener('click', destroyBoxes);
+                
+                console.log("Скрипт динамічної колекції завантажено.");
+                </pre>
+                <p>
+                    <strong>Фото роботи програми</strong>
+                </p>
+                <div class="task-images-container">
+                    <img src="img_lab6/lab6_10(1).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_10(2).png" alt="Фото" class="task-image">
+                    <img src="img_lab6/lab6_10(3).png" alt="Фото" class="task-image">
+                </div>
+            `
+        },
+
+        visnovki6: {
+            heading: 'ВИСНОВКИ (Лаб. №6)',
+            content: `
+            <p>
+            Виконання практичних завдань дозволило ефективно засвоїти ключові концепції сучасної мови JavaScript, зосереджуючись 
+            на взаємодії з Об'єктною Моделлю Документа (DOM). Було набуто практичних навичок отримання посилань на елементи DOM та 
+            маніпулювання їхніми властивостями, такими як стилі та атрибути (input.type або body.style.backgroundColor). 
+            Особливу увагу було приділено роботі з Подіями, включаючи реєстрацію обробників за допомогою addEventListener на кнопках 
+            та формі. Завдання продемонстрували важливість використання Об'єкта Події (event) для доступу до даних форми 
+            (event.currentTarget.elements) та запобігання стандартній поведінці браузера (event.preventDefault). 
+            Також було застосовано принцип делегування подій для перевірки кліку у межах конкретного елемента, використовуючи властивість 
+            event.target та метод contains(). Це зміцнило розуміння того, як JavaScript динамічно управляє інтерфейсом користувача, 
+            забезпечуючи інтерактивність та валідацію.
+            </p> 
+            `
+        },
+    },
 };
 
 document.addEventListener('DOMContentLoaded', () => {
